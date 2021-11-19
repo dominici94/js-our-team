@@ -77,6 +77,11 @@ for(let i = 0; i < team.length; i++){
 const bottone = document.getElementById('addMemberButton');
 
 bottone.addEventListener('click', function(){
+    creaMembro();
+});
+
+
+function creaMembro(){
     const newName = document.getElementById('name').value;
     const newRole = document.getElementById('role').value;
     const newImage = document.getElementById('image').value;
@@ -84,7 +89,7 @@ bottone.addEventListener('click', function(){
     teamContainer.innerHTML += `
         <div class="team-card">
             <div class="card-image">
-                <img src="${newImage}" alt="${newName}"/>
+                <img src="${newImage}" alt="foto di ${newName}"/>
             </div>
             <div class="card-text">
                 <h3>${newName}</h3>
@@ -92,4 +97,4 @@ bottone.addEventListener('click', function(){
             </div>
         </div>
     `;
-});
+}
