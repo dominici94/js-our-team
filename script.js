@@ -54,10 +54,11 @@ const team = [
 const teamContainer = document.querySelector('.team-container');
 
 for(let i = 0; i < team.length; i++){
+
     teamContainer.innerHTML += `
         <div class="team-card">
             <div class="card-image">
-                <img src="${team[i].foto}" alt="Wayne Barnett"/>
+                <img src="${team[i].foto}" alt="${team[i].nome}"/>
             </div>
             <div class="card-text">
                 <h3>${team[i].nome}</h3>
@@ -65,4 +66,30 @@ for(let i = 0; i < team.length; i++){
             </div>
         </div>
     `;
+ 
+
 }
+
+// BONUS: Utilizziamo poi gli input presenti nella pagina per permettere all'utente di aggiungere nuovi membri del team.
+
+// quando clicco sul bottone add un oggetto si aggiunge al container dell'html
+
+const bottone = document.getElementById('addMemberButton');
+
+bottone.addEventListener('click', function(){
+    const newName = document.getElementById('name').value;
+    const newRole = document.getElementById('role').value;
+    const newImage = document.getElementById('image').value;
+
+    teamContainer.innerHTML += `
+        <div class="team-card">
+            <div class="card-image">
+                <img src="${newImage}" alt="${newName}"/>
+            </div>
+            <div class="card-text">
+                <h3>${newName}</h3>
+                <p>${newRole}</p>
+            </div>
+        </div>
+    `;
+});
